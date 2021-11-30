@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class UsuarioRequest {
-    private String name;
-    private String lastName;
+    private String nombre;
+    private String apellido;
     private int celular;
+    private String contraseña;
 }
