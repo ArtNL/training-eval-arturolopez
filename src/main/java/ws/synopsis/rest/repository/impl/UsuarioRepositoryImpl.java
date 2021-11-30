@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import ws.synopsis.rest.model.Usuario;
 import ws.synopsis.rest.repository.UsuarioRepository;
@@ -24,17 +25,31 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 	}
 	@Override
 	public boolean add(Usuario usuario) {
-		// TODO Auto-generated method stub
+		//true: el celular ya estaba ingresado
+		for(Entry<Long, Usuario> m: USUARIOS.entrySet()) {
+			if(m.getValue().getCelular()==usuario.getCelular()) {
+				return true;
+			}
+		}
+		long id=(long) USUARIOS.size();
+		USUARIOS.put(++id,usuario);
 		return false;
 	}
 	@Override
-	public boolean update(Usuario usuario) {
-		// TODO Auto-generated method stub
+	public boolean update(int idCliente,Usuario usuario) {
+		//true: sin errores
+		for(Entry<Long, Usuario> e:USUARIOS.entrySet()) {
+				if(e.getKey()==idCliente) {
+					USUARIOS.put(e.getKey(), usuario);
+					return true;
+				}
+			}
 		return false;
 	}
+	
 	@Override
 	public boolean delete(Usuario usuario) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 }
