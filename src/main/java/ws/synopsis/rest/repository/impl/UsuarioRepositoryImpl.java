@@ -48,7 +48,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 	}
 	
 	@Override
-	public boolean delete(int idUsuario, Usuario usuario) {
+	public boolean delete(int idUsuario) {
 		
 		USUARIOS.remove((long)idUsuario);
 		return true;
