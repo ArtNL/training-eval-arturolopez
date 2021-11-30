@@ -1,7 +1,9 @@
 package ws.synopsis.rest.enums;
 
+import lombok.Getter;
 import ws.synopsis.rest.bean.response.InfoResponse.Status;
 
+@Getter
 public enum CodStatus {
 
 	OK("1000","Proceso exitoso"),
