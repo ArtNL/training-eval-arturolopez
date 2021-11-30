@@ -36,10 +36,10 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 		return false;
 	}
 	@Override
-	public boolean update(int idCliente,Usuario usuario) {
+	public boolean update(int idUsuario,Usuario usuario) {
 		//true: sin errores
 		for(Entry<Long, Usuario> e:USUARIOS.entrySet()) {
-				if(e.getKey()==idCliente) {
+				if(e.getKey()==idUsuario) {
 					USUARIOS.put(e.getKey(), usuario);
 					return true;
 				}
@@ -48,8 +48,9 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 	}
 	
 	@Override
-	public boolean delete(Usuario usuario) {
+	public boolean delete(int idUsuario, Usuario usuario) {
 		
-		return false;
+		USUARIOS.remove((long)idUsuario);
+		return true;
 	}
 }

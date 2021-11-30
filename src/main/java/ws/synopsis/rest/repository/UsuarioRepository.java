@@ -8,5 +8,5 @@ public interface UsuarioRepository {
 	public List<Usuario> listaUsuarios();
 	public boolean add(Usuario usuario);
 	public boolean update(int idCliente,Usuario usuario);
-	public boolean delete(Usuario usuario);
+	public boolean delete(int idCliente,Usuario usuario);
 }
